@@ -18,17 +18,54 @@ export class AppComponent implements OnInit{
   constructor(private gameOfLifeService: GameOfLifeService){
 
     this.title = "Game of Life!";
+    this.generation = new Generation(1, "First test", [[
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        1,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]] );
 
   }
 
   ngOnInit(): void{
 
-    this.getNextGeneration();
+   // this.getNextGeneration();
 
   }
 
   getNextGeneration():void{
-    this.gameOfLifeService.getNextGeneration().then(result => {
+    this.gameOfLifeService.getNextGeneration(this.generation).then(result => {
+      console.log("COMPONENT");
+      console.log(result);
       this.generation = result;
     })
   }
