@@ -1,0 +1,23 @@
+<h1>
+  {{title}}
+</h1>
+
+<script>
+
+  /*
+  <pre>{{generation | json}}</pre>
+   [{{i}},{{j}}]
+
+  */
+
+</script>
+
+<button type="button" class="btn btn-default" (click)="getNextGeneration()" style="margin-bottom:20px">Next Generation </button>
+
+<table class="content" *ngIf="generation" style="border: 0px solid black; border-spacing:1px" border="1">
+  <tr *ngFor="let row of generation.cells; let i = index;">
+
+    <td *ngFor="let col of row; let j = index;" style="width:30px; height:30px" [ngClass]="{'my-black-background': col }">
+    </td>
+  </tr>
+</table>
