@@ -19,8 +19,14 @@ export class GameOfLifeService {
     console.log(currentGeneration);
     return this.http.post(this.getNextGenerationUrl, JSON.stringify(currentGeneration), {headers: this.headers})
       .toPromise()
-      .then(response => {response.json().data as Generation; console.log(response)})
+      .then(this.extractData)
       .catch(this.handleError);
+  }
+
+  private extractData(res: any) {
+    console.log(res);
+    let body = res.json();
+    return body || { };
   }
 
   private handleError(error: any): Promise<any> {
