@@ -28,6 +28,8 @@ public class GenerationControllerImpl {
         generationDto.setName("First test");
         int cells[][] = {{0, 0, 0, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 0, 0, 0}};
         generationDto.setCells(cells);
+        generationDto.setCol(5);
+        generationDto.setRow(5);
 
         return new ResponseEntity<GenerationDto>(generationDto, HttpStatus.OK);
     }
@@ -93,6 +95,8 @@ public class GenerationControllerImpl {
 
 
         nextGenerationDto.setCells(nextGen);
+        nextGenerationDto.setRow(currentGenerationDto.getRow());
+        nextGenerationDto.setCol(currentGenerationDto.getCol());
 
         return new ResponseEntity<GenerationDto>(nextGenerationDto, HttpStatus.OK);
     }

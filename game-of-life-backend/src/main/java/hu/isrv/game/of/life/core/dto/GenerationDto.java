@@ -11,14 +11,18 @@ public class GenerationDto {
     private Long Id;
     private String Name;
     int cells[][];
+    int row;
+    int col;
 
     public GenerationDto() {
     }
 
-    public GenerationDto(Long id, String name, int[][] cells) {
+    public GenerationDto(Long id, String name, int[][] cells, int row, int col) {
         Id = id;
         Name = name;
         this.cells = cells;
+        this.row = row;
+        this.col = col;
     }
 
     public Long getId() {
@@ -43,5 +47,21 @@ public class GenerationDto {
 
     public void setCells(int[][] cells) {
         this.cells = cells;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
     }
 }
