@@ -52,7 +52,7 @@ export class AppComponent implements OnInit{
         0,
         0,
         0
-      ]] );
+      ]],5,5 );
 
   }
 
@@ -68,5 +68,39 @@ export class AppComponent implements OnInit{
       console.log(result);
       this.generation = result;
     })
+  }
+
+  toggleCell(row:number,col:number):void{
+    this.generation.cells[row][col] = +!this.generation.cells[row][col];
+  }
+
+  addRow():void{
+    var newRow :number[]= new Array();
+    for(var i=0; i<this.generation.col; i++){
+      newRow.push(0);
+    }
+    this.generation.row++;
+    this.generation.cells.push(newRow);
+  }
+
+  removeRow():void{
+
+    this.generation.row--;
+    this.generation.cells.pop();
+  }
+
+  addColumn():void{
+    for(var i=0; i<this.generation.cells.length; i++){
+      this.generation.cells[i].push(0);
+    }
+    this.generation.col++;
+  }
+
+  removeColumn():void{
+    for(var i=0; i<this.generation.cells.length; i++){
+      this.generation.cells[i].pop();
+    }
+    this.generation.col--;
+
   }
 }
